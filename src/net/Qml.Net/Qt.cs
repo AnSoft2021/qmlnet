@@ -27,6 +27,11 @@ namespace Qml.Net
         {
             return NetQObject.BuildQObject(className)?.AsDynamic();
         }
+
+        public static int AddApplicationFont(string name)
+        {
+            return Interop.QtInterop.AddApplicationFont(name);
+        }
     }
 
     internal class QtInterop
@@ -51,5 +56,12 @@ namespace Qml.Net
         [SuppressUnmanagedCodeSecurity]
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr QtVersionDel();
+
+        [NativeSymbol(Entrypoint = "qt_addApplicationFont")]
+        public AddApplicationFontDel AddApplicationFont { get; set; }
+
+        [SuppressUnmanagedCodeSecurity]
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate byte AddApplicationFontDel([MarshalAs(UnmanagedType.LPStr)]string name);
     }
 }

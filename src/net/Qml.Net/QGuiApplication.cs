@@ -29,5 +29,10 @@ namespace Qml.Net
         {
             Interop.QCoreApplication.SetWindowIcon(Handle, pngFilePath);
         }
+
+        public void SetFontByName(string fontName)
+        {
+            Interop.QCoreApplication.SetFontByName(Handle, fontName);
+        }
     }
 }

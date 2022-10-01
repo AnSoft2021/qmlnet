@@ -441,6 +441,13 @@ namespace Qml.Net
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void SetWindowIconDel(IntPtr app, [MarshalAs(UnmanagedType.LPWStr)]string pngFilePath);
 
+        [NativeSymbol(Entrypoint = "qapp_setFontByName")]
+        public SetFontByNameDel SetFontByName { get; set; }
+
+        [SuppressUnmanagedCodeSecurity]
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void SetFontByNameDel(IntPtr app, [MarshalAs(UnmanagedType.LPWStr)]string fontName);
+
         [NativeSymbol(Entrypoint = "qapp_requestTrigger")]
         public RequestTriggerDel RequestTrigger { get; set; }
 
